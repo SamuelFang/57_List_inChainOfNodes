@@ -67,7 +67,7 @@ public class List_inChainOfNodes{
         return temp;
     }
     
-    public Object get( int index ) {
+    public Object get( int index ) {//tried nttsst here but can't figure it out
         Node currentNode = headReference;
         int counter = 0;
         while (counter != index){
@@ -95,10 +95,21 @@ public class List_inChainOfNodes{
          return true;
      }
     
-    // public int remove( int index) {
-         // int temp = elements [index];
-         // for( ; index < filledElements; index++)
-            // elements[ index] = this.get(index + 1);
-        // return temp;
-     // }
+    public Object remove( int index) {
+        Node currentNode = headReference;
+        int counter = 0;
+        while (counter != index - 1){
+            currentNode = currentNode.getReferenceToNextNode();
+            counter++;
+        }
+        Node nextNode = currentNode.getReferenceToNextNode();
+        if (index == this.size()){
+            currentNode.setReferenceToNextNode(null);
+            }
+        else{
+            Node nextNextNode = nextNode.getReferenceToNextNode();
+            currentNode.setReferenceToNextNode(nextNextNode);
+        }
+        return nextNode.getCargoReference();
+     }
 }

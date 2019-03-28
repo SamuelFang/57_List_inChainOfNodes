@@ -39,5 +39,10 @@ public class UserOfList {
         
         System.out.println( "list with addition: " + list
                           + System.lineSeparator());
+                          
+        list.remove(2);
+        
+        System.out.println( "list with remove: " + list
+                          + System.lineSeparator());
     }
 }
